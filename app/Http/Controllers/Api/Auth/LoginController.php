@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Auth\LoginRequest;
-use App\Http\Resources\Api\AppVersion\UserResource;
+use App\Http\Resources\Api\Auth\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +17,7 @@ class LoginController extends Controller
             ->whereProvider($request->provider)
             ->first();
 
-        if($user->tokens) {
+        if ($user->tokens) {
             $user->tokens()->delete();
         }
 
@@ -25,6 +25,6 @@ class LoginController extends Controller
 
         UserResource::withoutWrapping();
 
-        return (new UserResource($user,$accessToken))->response()->setStatusCode(Response::HTTP_OK);
+        return (new UserResource($user, $accessToken))->response()->setStatusCode(Response::HTTP_OK);
     }
 }

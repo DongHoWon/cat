@@ -34,4 +34,14 @@ class AppVersion extends Model
         'is_update',
         'update_message',
     ];
+
+    public const IS_UPDATE = [
+        self::IS_UPDATE_DEFAULT => 'default',
+        self::IS_UPDATE_SELECT => 'select',
+        self::IS_UPDATE_FORCE => 'force',
+    ];
+
+    public const IS_UPDATE_DEFAULT = 0;
+    public const IS_UPDATE_SELECT = 1;
+    public const IS_UPDATE_FORCE = 2;
 }

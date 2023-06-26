@@ -62,6 +62,14 @@ class User extends Authenticatable
         'nick_name',
     ];
 
+    public const PROVIDER = [
+        self::PROVIDER_GOOGLE => 'google',
+        self::PROVIDER_KAKAO => 'kakao',
+    ];
+
+    public const PROVIDER_KAKAO = 'kakao';
+    public const PROVIDER_GOOGLE = 'google';
+
     protected $hidden = [
         'password',
         'remember_token',
